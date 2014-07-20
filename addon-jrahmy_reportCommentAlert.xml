@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="jrahmy_reportCommentAlert" title="Report Comment Alerts" version_string="2.0.0" version_id="200" url="https://xenforo.com/community/resources/report-comment-alerts.1332/" install_callback_class="Jrahmy\ReportCommentAlert\Install" install_callback_method="install" uninstall_callback_class="Jrahmy\ReportCommentAlert\Install" uninstall_callback_method="uninstall">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates/>
+  <admin_template_modifications/>
+  <code_events/>
+  <code_event_listeners>
+    <listener event_id="load_class_datawriter" execute_order="10" callback_class="Jrahmy\ReportCommentAlert\Listener" callback_method="loadClassDatawriter" active="1" hint="XenForo_DataWriter_ReportComment" description="Extends datawriters"/>
+    <listener event_id="load_class_model" execute_order="10" callback_class="Jrahmy\ReportCommentAlert\Listener" callback_method="loadClassModel" active="1" hint="XenForo_Model_Report" description="Extends models"/>
+  </code_event_listeners>
+  <cron/>
+  <email_templates/>
+  <email_template_modifications/>
+  <optiongroups/>
+  <permissions>
+    <permission_groups/>
+    <permissions/>
+    <interface_groups/>
+  </permissions>
+  <phrases>
+    <phrase title="jrahmy_reportCommentAlert_x_commented_on_report" version_id="0" version_string="1.0.0"><![CDATA[{name} commented on a <a {report_attributes}>report</a>.]]></phrase>
+  </phrases>
+  <route_prefixes/>
+  <style_properties/>
+  <templates>
+    <template title="alert_report_comment" version_id="0" version_string="1.0.0"><![CDATA[{xen:phrase jrahmy_reportCommentAlert_x_commented_on_report,
+	'name={xen:helper username, $user, 'subject'}',
+	'report_attributes=href="{xen:link reports, $content}" class="PopupItemLink"'
+}]]></template>
+  </templates>
+  <public_template_modifications/>
+  <bb_code_media_sites/>
+  <bb_codes/>
+</addon>
