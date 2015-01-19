@@ -31,6 +31,6 @@ class Report extends \XenForo_AlertHandler_Abstract
         /* @var $reportModel \XenForo_Model_Report */
         $reportModel = $model->getModelFromCache('XenForo_Model_Report');
 
-        return $reportModel->getReportsByIds($contentIds);
+        return $reportModel->getReportsByIdsToo($contentIds);
     }
 }
