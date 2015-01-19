@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<addon addon_id="jrahmy_reportCommentAlert" title="Report Comment Alerts" version_string="2.0.0" version_id="200" url="https://xenforo.com/community/resources/report-comment-alerts.1332/" install_callback_class="Jrahmy\ReportCommentAlert\Install" install_callback_method="install" uninstall_callback_class="Jrahmy\ReportCommentAlert\Install" uninstall_callback_method="uninstall">
+<addon addon_id="jrahmy_reportCommentAlert" title="Report Comment Alerts" version_string="2.0.1" version_id="201" url="https://xenforo.com/community/resources/report-comment-alerts.1332/" install_callback_class="Jrahmy\ReportCommentAlert\Install" install_callback_method="install" uninstall_callback_class="Jrahmy\ReportCommentAlert\Install" uninstall_callback_method="uninstall">
   <admin_navigation/>
   <admin_permissions/>
   <admin_style_properties/>

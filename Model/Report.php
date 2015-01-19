@@ -22,11 +22,14 @@ class Report extends XFCP_Report
     /**
      * Gets reports by IDs.
      *
+     * This has been given a 'special' name because it conflicts with Digital
+     * Point's search add-on.
+     *
      * @param array $reportIds An array of report IDs
      *
      * @return array Returns an array of reports
      */
-    public function getReportsByIds(array $reportIds)
+    public function getReportsByIdsToo(array $reportIds)
     {
         if (!$reportIds) {
             return [];
