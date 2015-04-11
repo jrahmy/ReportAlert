@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<addon addon_id="jrahmy_reportCommentAlert" title="Report Comment Alerts" version_string="2.0.1" version_id="201" url="https://xenforo.com/community/resources/report-comment-alerts.1332/" install_callback_class="Jrahmy\ReportCommentAlert\Install" install_callback_method="install" uninstall_callback_class="Jrahmy\ReportCommentAlert\Install" uninstall_callback_method="uninstall">
+<addon addon_id="jrahmy_reportCommentAlert" title="Report Comment Alerts" version_string="2.1.0" version_id="210" url="https://xenforo.com/community/resources/report-comment-alerts.1332/" install_callback_class="Jrahmy\ReportCommentAlert\Install" install_callback_method="install" uninstall_callback_class="Jrahmy\ReportCommentAlert\Install" uninstall_callback_method="uninstall">
   <admin_navigation/>
   <admin_permissions/>
   <admin_style_properties/>
@@ -20,12 +20,12 @@
     <interface_groups/>
   </permissions>
   <phrases>
-    <phrase title="jrahmy_reportCommentAlert_x_commented_on_report" version_id="0" version_string="1.0.0"><![CDATA[{name} commented on a <a {report_attributes}>report</a>.]]></phrase>
+    <phrase title="jrahmy_reportCommentAlert_x_commented_on_report_may_be_more" version_id="210" version_string="2.1.0"><![CDATA[{name} commented on a <a {report_attributes}>report</a>. There may be more comments after this.]]></phrase>
   </phrases>
   <route_prefixes/>
   <style_properties/>
   <templates>
-    <template title="alert_report_comment" version_id="0" version_string="1.0.0"><![CDATA[{xen:phrase jrahmy_reportCommentAlert_x_commented_on_report,
+    <template title="alert_report_comment" version_id="210" version_string="2.1.0"><![CDATA[{xen:phrase jrahmy_reportCommentAlert_x_commented_on_report_may_be_more,
 	'name={xen:helper username, $user, 'subject'}',
 	'report_attributes=href="{xen:link reports, $content}" class="PopupItemLink"'
 }]]></template>
