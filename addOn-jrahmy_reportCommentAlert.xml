@@ -8,7 +8,7 @@
   <code_events/>
   <code_event_listeners>
     <listener event_id="load_class_datawriter" execute_order="10" callback_class="Jrahmy\ReportCommentAlert\Listener" callback_method="loadClassDatawriter" active="1" hint="XenForo_DataWriter_ReportComment" description="Extends datawriters"/>
-    <listener event_id="load_class_model" execute_order="10" callback_class="Jrahmy\ReportCommentAlert\Listener" callback_method="loadClassModel" active="1" hint="XenForo_Model_Report" description="Extends models"/>
+    <listener event_id="load_class_model" execute_order="10" callback_class="Jrahmy\ReportCommentAlert\Listener" callback_method="loadClassModel" active="1" hint="" description="Extends models"/>
   </code_event_listeners>
   <cron/>
   <email_templates/>
