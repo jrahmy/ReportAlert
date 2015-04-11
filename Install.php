@@ -21,7 +21,8 @@ class Install
 {
     /**
      * An array of content types and fields associated with this add-on.
-     * @type array
+     *
+     * @var array
      */
     public static $contentTypes = [
         'report' => [
