@@ -59,19 +59,13 @@ class ReportComment extends XFCP_ReportComment
                 );
 
                 if (!empty($reports)) {
-                    $alerts = $this->getAlertModel()->getAlertsForUser(
-                        $otherCommenter['user_id'],
-                        \XenForo_Model_Alert::FETCH_MODE_ALL
-                    );
-                    $alerts = $alerts['alerts'];
-
-                    foreach ($alerts as $alert) {
-                        if ($alert['content_type'] === 'report' and
-                            $alert['action']       === 'comment' and
-                            $alert['content_id']   === $this->get('report_id') and
-                            $alert['view_date']    === 0) {
-                                continue 2;
-                        }
+                    if ($this->getAlertModel()
+                        ->hasUnreadReportCommentAlertByUserIdAndReportId(
+                            $otherCommenter['user_id'],
+                            $this->get('report_id')
+                        )
+                    ) {
+                        continue;
                     }
 
                     \XenForo_Model_Alert::alert(
