@@ -27,7 +27,7 @@ class Report extends XFCP_Report
      *
      * @param array $reportIds An array of report IDs
      *
-     * @return array Returns an array of reports
+     * @return array An array of reports
      */
     public function getReportsByIdsToo(array $reportIds)
     {
