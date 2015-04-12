@@ -19,12 +19,12 @@ namespace Jrahmy\ReportCommentAlert\DataWriter;
 class ReportComment extends XFCP_ReportComment
 {
     /**
-     * Actions to perform after the data is saved.
+     * Actions to perform after the transaction is committed.
      *
      * Loads parent method, then alerts all commenters who can view a report
      * that another member has commented.
      */
-    protected function _postSave()
+    protected function _postSaveAfterTransaction()
     {
         parent::_postSave();
 
