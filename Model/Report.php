@@ -71,7 +71,7 @@ class Report extends XFCP_Report
      * @param array $comment The new comment
      * @param array $report  The report it was added to
      *
-     * @return array The array or else
+     * @return array Empty or user ids alerted
      */
     public function sendAlertToOtherCommentersOnComment(array $comment, array $report)
     {
@@ -83,6 +83,8 @@ class Report extends XFCP_Report
             $reportCommenterIds,
             ['join' => \XenForo_Model_User::FETCH_USER_PERMISSIONS]
         );
+
+        $alertedUserIds = [];
 
         foreach ($reportCommenters as $reportCommenter) {
             // don't send an alert to the user who made the comment
@@ -128,7 +130,11 @@ class Report extends XFCP_Report
                 $report['report_id'],
                 'comment'
             );
+
+            $alertedUserIds[] = $reportCommenter['user_id'];
         }
+
+        return $alertedUserIds;
     }
 
     /**
