@@ -26,12 +26,12 @@ class FileSums
     public static function getHashes()
     {
         return [
-                'library/Jrahmy/ReportCommentAlert/DataWriter/ReportComment.php' => 'c2629b4501ffd0e4f27bbbd8dd0f46a8',
-                'library/Jrahmy/ReportCommentAlert/Listener.php' => 'dfa28344e816bbba88e17236a8f8047b',
-                'library/Jrahmy/ReportCommentAlert/Install.php' => 'c255efc31363c810b8e0ea2430951026',
-                'library/Jrahmy/ReportCommentAlert/Model/Report.php' => '46422f9ca1daa6a53e57bf737c1dfba7',
+                'library/Jrahmy/ReportCommentAlert/DataWriter/ReportComment.php' => 'f419e88270f3ee3f4fe17690c13be33e',
+                'library/Jrahmy/ReportCommentAlert/Listener.php' => '9ba8a8cf7227a2dea5949ca525180fd5',
+                'library/Jrahmy/ReportCommentAlert/Install.php' => '356cb517c5f18f002710a8a50d8b471f',
+                'library/Jrahmy/ReportCommentAlert/Model/Report.php' => '11fae16f2f3cb58448caf9e5fae919ca',
                 'library/Jrahmy/ReportCommentAlert/Model/Alert.php' => '29123411e0124a21a2a4d6d9650b0287',
-                'library/Jrahmy/ReportCommentAlert/AlertHandler/Report.php' => 'dfe02acff588a53ce9a5f4ecb034ee7c',
+                'library/Jrahmy/ReportCommentAlert/AlertHandler/Report.php' => '918d9e5e3c364a622c508e8d86352a79',
 
         ];
     }
