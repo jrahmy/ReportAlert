@@ -30,7 +30,7 @@ class Report extends \XenForo_AlertHandler_Abstract
      */
     public function getContentByIds(array $contentIds, $model, $userId, array $viewingUser)
     {
-        /** @var $reportModel \XenForo_Model_Report */
+        /* @var $reportModel \XenForo_Model_Report */
         $reportModel = $model->getModelFromCache('XenForo_Model_Report');
 
         return $reportModel->getReportsByIdsToo($contentIds);

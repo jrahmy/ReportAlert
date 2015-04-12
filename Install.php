@@ -71,7 +71,7 @@ class Install
             self::installContentType($addOnId, $contentType, $fields);
         }
 
-        /** @var $contentTypeModel \XenForo_Model_ContentType */
+        /* @var $contentTypeModel \XenForo_Model_ContentType */
         $contentTypeModel = \XenForo_Model::create('XenForo_Model_ContentType');
         $contentTypeModel->rebuildContentTypeCache();
     }
@@ -124,7 +124,7 @@ class Install
             self::uninstallContentType($contentType, $fields);
         }
 
-        /** @var $contentTypeModel \XenForo_Model_ContentType */
+        /* @var $contentTypeModel \XenForo_Model_ContentType */
         $contentTypeModel = \XenForo_Model::create('XenForo_Model_ContentType');
         $contentTypeModel->rebuildContentTypeCache();
     }
