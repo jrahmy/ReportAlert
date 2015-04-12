@@ -43,11 +43,11 @@ class Listener
     public static function loadClassModel($class, array &$extend)
     {
         switch ($class) {
-            case 'XenForo_Model_Report':
-                $extend[] = 'Jrahmy\ReportCommentAlert\Model\Report';
-                break;
             case 'XenForo_Model_Alert':
                 $extend[] = 'Jrahmy\ReportCommentAlert\Model\Alert';
+                break;
+            case 'XenForo_Model_Report':
+                $extend[] = 'Jrahmy\ReportCommentAlert\Model\Report';
                 break;
         }
     }

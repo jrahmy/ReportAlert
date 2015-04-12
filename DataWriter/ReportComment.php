@@ -19,73 +19,22 @@ namespace Jrahmy\ReportCommentAlert\DataWriter;
 class ReportComment extends XFCP_ReportComment
 {
     /**
-     * Actions to perform after the data is saved.
+     * Actions to perform after the transaction is committed.
      *
-     * Loads parent method, then alerts all commenters who can view a report
-     * that another member has commented.
+     * Loads parent method, then alerts all other report moderators that
+     * another moderator has commented.
      */
-    protected function _postSave()
+    protected function _postSaveAfterTransaction()
     {
         parent::_postSave();
 
-        $reportModel = $this->_getReportModel();
+        if ($this->isInsert()) {
+            $reportModel = $this->_getReportModel();
 
-        $otherCommenterIds = $reportModel->getReportCommentUserIds(
-            $this->get('report_id')
-        );
+            $comment = $this->getMergedData();
+            $report  = $reportModel->getReportById($comment['report_id']);
 
-        $otherCommenters = $this->_getUserModel()->getUsersByIds(
-            $otherCommenterIds,
-            ['join' => \XenForo_Model_User::FETCH_USER_PERMISSIONS]
-        );
-
-        foreach ($otherCommenters as $otherCommenter) {
-            if ($otherCommenter['user_id'] == $this->get('user_id')) {
-                continue;
-            }
-
-            if ($otherCommenter['is_moderator']) {
-                $otherCommenter['permissions'] = unserialize(
-                    $otherCommenter['global_permission_cache']
-                );
-
-                $report = $reportModel->getReportById($this->get('report_id'));
-                $handler = $reportModel->getReportHandler(
-                    $report['content_type']
-                );
-                $reports = $handler->getVisibleReportsForUser(
-                    [$this->get('report_id') => $report],
-                    $otherCommenter
-                );
-
-                if (!empty($reports)) {
-                    if ($this->getAlertModel()
-                        ->hasUnreadReportCommentAlertByUserIdAndReportId(
-                            $otherCommenter['user_id'],
-                            $this->get('report_id')
-                        )
-                    ) {
-                        continue;
-                    }
-
-                    \XenForo_Model_Alert::alert(
-                        $otherCommenter['user_id'],
-                        $this->get('user_id'),
-                        $this->get('username'),
-                        'report',
-                        $this->get('report_id'),
-                        'comment'
-                    );
-                }
-            }
+            $reportModel->sendAlertToOtherCommentersOnComment($comment, $report);
         }
-    }
-
-    /**
-     * @return \XenForo_Model_Alert
-     */
-    protected function getAlertModel()
-    {
-        return $this->getModelFromCache('XenForo_Model_Alert');
     }
 }
