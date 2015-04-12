@@ -64,4 +64,86 @@ class Report extends XFCP_Report
             $reportId
         );
     }
+
+    /**
+     * Send alerts to other report moderators when a new comment is made.
+     *
+     * @param array $comment The new comment
+     * @param array $report  The report it was added to
+     *
+     * @return array The array or else
+     */
+    public function sendAlertToOtherCommentersOnComment(array $comment, array $report)
+    {
+        $reportCommenterIds = $this->getReportCommentUserIds(
+            $report['report_id']
+        );
+
+        $reportCommenters = $this->getUserModel()->getUsersByIds(
+            $reportCommenterIds,
+            ['join' => \XenForo_Model_User::FETCH_USER_PERMISSIONS]
+        );
+
+        foreach ($reportCommenters as $reportCommenter) {
+            // don't send an alert to the user who made the comment
+            if ($reportCommenter['user_id'] == $comment['user_id']) {
+                continue;
+            }
+
+            // don't send an alert to a non-moderator
+            if (!$reportCommenter['is_moderator']) {
+                continue;
+            }
+
+            $reportCommenter['permissions'] = unserialize(
+                $reportCommenter['global_permission_cache']
+            );
+
+            $reportHandler = $this->getReportHandler($report['content_type']);
+            $visibleReports = $reportHandler->getVisibleReportsForUser(
+                [$report['report_id'] => $report],
+                $reportCommenter
+            );
+
+            // don't send an alert if this report is not visible to a moderator
+            if (empty($visibleReports)) {
+                continue;
+            }
+
+            // don't send an alert if there is already an unread alert
+            if ($this->getAlertModel()
+                ->hasUnreadReportCommentAlertByUserIdAndReportId(
+                    $reportCommenter['user_id'],
+                    $report['report_id']
+                )
+            ) {
+                continue;
+            }
+
+            \XenForo_Model_Alert::alert(
+                $reportCommenter['user_id'],
+                $comment['user_id'],
+                $comment['username'],
+                'report',
+                $report['report_id'],
+                'comment'
+            );
+        }
+    }
+
+    /**
+     * @return \XenForo_Model_Alert
+     */
+    protected function getAlertModel()
+    {
+        return $this->getModelFromCache('XenForo_Model_Alert');
+    }
+
+    /**
+     * @return \XenForo_Model_User
+     */
+    protected function getUserModel()
+    {
+        return $this->getModelFromCache('XenForo_Model_User');
+    }
 }
