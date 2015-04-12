@@ -22,7 +22,7 @@ class ReportComment extends XFCP_ReportComment
      * Actions to perform after the transaction is committed.
      *
      * Loads parent method, then alerts all other report moderators that
-     * another moderator has commented.
+     * another member has commented.
      */
     protected function _postSaveAfterTransaction()
     {
