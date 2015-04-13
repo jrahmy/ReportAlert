@@ -35,7 +35,6 @@ class Alert extends XFCP_Alert
             WHERE alerted_user_id = ?
                 AND content_type = "report"
                 AND content_id = ?
-                AND action = "comment"
                 AND view_date = 0
         ', [$userId, $reportId]);
 
