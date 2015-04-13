@@ -26,10 +26,10 @@ class FileSums
     public static function getHashes()
     {
         return [
-                'library/Jrahmy/ReportAlert/DataWriter/ReportComment.php' => '6167b941c4232ce4893c9a50aa080a9f',
+                'library/Jrahmy/ReportAlert/DataWriter/ReportComment.php' => 'e81eaac8445af04961a40fe28101ca33',
                 'library/Jrahmy/ReportAlert/Listener.php' => '7247a2d6f2cec9c0a0371d412d024080',
-                'library/Jrahmy/ReportAlert/Install.php' => '599d264ddcfcb684b36e6200767f8c08',
-                'library/Jrahmy/ReportAlert/Model/Report.php' => '041fa3dc33603bd58c525459b54d2344',
+                'library/Jrahmy/ReportAlert/Install.php' => 'f53a034e4e692a11dfa26d1c3341ab07',
+                'library/Jrahmy/ReportAlert/Model/Report.php' => '58df50219ca4aa3d837e4ef79342b544',
                 'library/Jrahmy/ReportAlert/AlertHandler/Report.php' => 'ae7f26c1634948ca339c4978f0dfa45c',
 
         ];
