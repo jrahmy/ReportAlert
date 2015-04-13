@@ -26,7 +26,7 @@ class ReportComment extends XFCP_ReportComment
      */
     protected function _postSaveAfterTransaction()
     {
-        parent::_postSave();
+        parent::_postSaveAfterTransaction();
 
         if ($this->isInsert()) {
             $reportModel = $this->_getReportModel();
