@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Jrahmy\ReportCommentAlert;
+namespace Jrahmy\ReportAlert;
 
 /**
  * Installs custom content type and content type fields so that add-ons may
@@ -26,7 +26,7 @@ class Install
      */
     public static $contentTypes = [
         'report' => [
-            'alert_handler_class' => 'Jrahmy\ReportCommentAlert\AlertHandler\Report'
+            'alert_handler_class' => 'Jrahmy\ReportAlert\AlertHandler\Report'
         ]
     ];
 

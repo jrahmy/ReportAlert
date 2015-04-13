@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Jrahmy\ReportCommentAlert\AlertHandler;
+namespace Jrahmy\ReportAlert\AlertHandler;
 
 /**
  * Alert handler for moderator reports.

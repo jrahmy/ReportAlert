@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Jrahmy\ReportCommentAlert;
+namespace Jrahmy\ReportAlert;
 
 /**
  * Provides static methods to extend the XenForo API.
@@ -29,7 +29,7 @@ class Listener
      */
     public static function loadClassDatawriter($class, array &$extend)
     {
-        $extend[] = 'Jrahmy\ReportCommentAlert\DataWriter\ReportComment';
+        $extend[] = 'Jrahmy\ReportAlert\DataWriter\ReportComment';
     }
 
     /**
@@ -44,10 +44,10 @@ class Listener
     {
         switch ($class) {
             case 'XenForo_Model_Alert':
-                $extend[] = 'Jrahmy\ReportCommentAlert\Model\Alert';
+                $extend[] = 'Jrahmy\ReportAlert\Model\Alert';
                 break;
             case 'XenForo_Model_Report':
-                $extend[] = 'Jrahmy\ReportCommentAlert\Model\Report';
+                $extend[] = 'Jrahmy\ReportAlert\Model\Report';
                 break;
         }
     }

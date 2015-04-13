@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Jrahmy\ReportCommentAlert\Model;
+namespace Jrahmy\ReportAlert\Model;
 
 /**
  * Extends \XenForo_Model_Alert to add custom methods to support our

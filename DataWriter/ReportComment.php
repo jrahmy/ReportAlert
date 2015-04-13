@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Jrahmy\ReportCommentAlert\DataWriter;
+namespace Jrahmy\ReportAlert\DataWriter;
 
 /**
  * Extends \XenForo_DataWriter_ReportComment to modify post-save actions.

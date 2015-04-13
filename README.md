@@ -1,6 +1,6 @@
-Report Comment Alerts
-=====================
-Alerts previous report commenters of new comments.
+Report Alerts
+=============
+Alerts moderators of reports and report changes.
 
 -----------------------------------------------------------------------------------
 
