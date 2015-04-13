@@ -56,6 +56,8 @@ class Install
     {
         self::uninstallContentTypes();
 
+        self::removeReportAlerts();
+
         return true;
     }
 
@@ -160,6 +162,18 @@ class Install
             'table'      => 'xf_content_type_field',
             'identifier' => "xf_content_type_field.field_value = '{$value}'"
         ]);
+    }
+
+    /**
+     * Removes all alerts for reports.
+     */
+    public static function removeReportAlerts()
+    {
+        self::deleteRow([
+            'table'      => 'xf_user_alert',
+            'identifier' => 'content_type = "report"'
+        ]);
+
     }
 
     /**
