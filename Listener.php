@@ -33,23 +33,16 @@ class Listener
     }
 
     /**
-     * This method fires when a model is loaded.
+     * This method fires when the \XenForo_Model_Report class is loaded.
      *
-     * It extends certain models with custom classes.
+     * It extends it with a custom class.
      *
      * @param string $class  The class being loaded
      * @param array  $extend An array of classes to extend it with
      */
     public static function loadClassModel($class, array &$extend)
     {
-        switch ($class) {
-            case 'XenForo_Model_Alert':
-                $extend[] = 'Jrahmy\ReportAlert\Model\Alert';
-                break;
-            case 'XenForo_Model_Report':
-                $extend[] = 'Jrahmy\ReportAlert\Model\Report';
-                break;
-        }
+        $extend[] = 'Jrahmy\ReportAlert\Model\Report';
     }
 
     /**

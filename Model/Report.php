@@ -69,12 +69,10 @@ class Report extends XFCP_Report
             }
 
             // don't send an alert if there is already an unread alert
-            if ($this->getAlertModel()
-                ->hasUnreadReportCommentAlertByUserIdAndReportId(
-                    $reportModerator['user_id'],
-                    $report['report_id']
-                )
-            ) {
+            if ($this->hasUnreadReportCommentAlertByUserIdAndReportId(
+                $reportModerator['user_id'],
+                $report['report_id']
+            )) {
                 continue;
             }
 
@@ -104,10 +102,28 @@ class Report extends XFCP_Report
     }
 
     /**
-     * @return \XenForo_Model_Alert
+     * Checks for unread alert for comments on a report.
+     *
+     * @param int $userId   The ID of the user to check
+     * @param int $reportId The ID of the report check for
+     *
+     * @return bool False if there is no unread alert, true otherwise
      */
-    protected function getAlertModel()
+    public function hasUnreadReportCommentAlertByUserIdAndReportId($userId, $reportId)
     {
-        return $this->getModelFromCache('XenForo_Model_Alert');
+        $alert = $this->_getDb()->fetchRow('
+            SELECT alert_id
+            FROM xf_user_alert
+            WHERE alerted_user_id = ?
+                AND content_type = "report"
+                AND content_id = ?
+                AND view_date = 0
+        ', [$userId, $reportId]);
+
+        if (empty($alert)) {
+            return false;
+        }
+
+        return true;
     }
 }
