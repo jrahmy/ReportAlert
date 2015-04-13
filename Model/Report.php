@@ -69,7 +69,7 @@ class Report extends XFCP_Report
             }
 
             // don't send an alert if there is already an unread alert
-            if ($this->hasUnreadReportCommentAlertByUserIdAndReportId(
+            if ($this->hasUnreadReportAlertByUserIdAndReportId(
                 $reportModerator['user_id'],
                 $report['report_id']
             )) {
@@ -102,14 +102,14 @@ class Report extends XFCP_Report
     }
 
     /**
-     * Checks for unread alert for comments on a report.
+     * Checks for unread alert for a report.
      *
      * @param int $userId   The ID of the user to check
      * @param int $reportId The ID of the report check for
      *
      * @return bool False if there is no unread alert, true otherwise
      */
-    public function hasUnreadReportCommentAlertByUserIdAndReportId($userId, $reportId)
+    public function hasUnreadReportAlertByUserIdAndReportId($userId, $reportId)
     {
         $alert = $this->_getDb()->fetchRow('
             SELECT alert_id
