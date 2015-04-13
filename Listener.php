@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Jrahmy\ReportCommentAlert;
+namespace Jrahmy\ReportAlert;
 
 /**
  * Provides static methods to extend the XenForo API.
@@ -22,34 +22,27 @@ class Listener
      * This method fires when the \XenForo_DataWriter_ReportComment class is
      * loaded.
      *
-     * It extends it with our custom class.
+     * It extends it with a custom class.
      *
      * @param string $class  The class being loaded
      * @param array  $extend An array of classes to extend it with
      */
     public static function loadClassDatawriter($class, array &$extend)
     {
-        $extend[] = 'Jrahmy\ReportCommentAlert\DataWriter\ReportComment';
+        $extend[] = 'Jrahmy\ReportAlert\DataWriter\ReportComment';
     }
 
     /**
-     * This method fires when a model is loaded.
+     * This method fires when the \XenForo_Model_Report class is loaded.
      *
-     * It extends certain models with custom classes.
+     * It extends it with a custom class.
      *
      * @param string $class  The class being loaded
      * @param array  $extend An array of classes to extend it with
      */
     public static function loadClassModel($class, array &$extend)
     {
-        switch ($class) {
-            case 'XenForo_Model_Alert':
-                $extend[] = 'Jrahmy\ReportCommentAlert\Model\Alert';
-                break;
-            case 'XenForo_Model_Report':
-                $extend[] = 'Jrahmy\ReportCommentAlert\Model\Report';
-                break;
-        }
+        $extend[] = 'Jrahmy\ReportAlert\Model\Report';
     }
 
     /**

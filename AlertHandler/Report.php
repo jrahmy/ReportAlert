@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Jrahmy\ReportCommentAlert\AlertHandler;
+namespace Jrahmy\ReportAlert\AlertHandler;
 
 /**
  * Alert handler for moderator reports.
@@ -25,10 +25,12 @@ class Report extends \XenForo_AlertHandler_Abstract
      * @param  \XenForo_Model_Alert $model       The invoked alert model
      * @param  int                  $userId      The user ID the alerts are for
      * @param  array                $viewingUser The viewing user's information
+     *
+     * @return array The content associated with the alerts
      */
     public function getContentByIds(array $contentIds, $model, $userId, array $viewingUser)
     {
-        /** @var $reportModel \XenForo_Model_Report */
+        /* @var $reportModel \XenForo_Model_Report */
         $reportModel = $model->getModelFromCache('XenForo_Model_Report');
 
         return $reportModel->getReportsByIdsToo($contentIds);

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Jrahmy\ReportCommentAlert;
+namespace Jrahmy\ReportAlert;
 
 /**
  * Filesums for XenForo File Health Check.
@@ -26,12 +26,11 @@ class FileSums
     public static function getHashes()
     {
         return [
-                'library/Jrahmy/ReportCommentAlert/DataWriter/ReportComment.php' => 'f419e88270f3ee3f4fe17690c13be33e',
-                'library/Jrahmy/ReportCommentAlert/Listener.php' => '9ba8a8cf7227a2dea5949ca525180fd5',
-                'library/Jrahmy/ReportCommentAlert/Install.php' => '356cb517c5f18f002710a8a50d8b471f',
-                'library/Jrahmy/ReportCommentAlert/Model/Report.php' => '11fae16f2f3cb58448caf9e5fae919ca',
-                'library/Jrahmy/ReportCommentAlert/Model/Alert.php' => '29123411e0124a21a2a4d6d9650b0287',
-                'library/Jrahmy/ReportCommentAlert/AlertHandler/Report.php' => '918d9e5e3c364a622c508e8d86352a79',
+                'library/Jrahmy/ReportAlert/DataWriter/ReportComment.php' => '6167b941c4232ce4893c9a50aa080a9f',
+                'library/Jrahmy/ReportAlert/Listener.php' => '7247a2d6f2cec9c0a0371d412d024080',
+                'library/Jrahmy/ReportAlert/Install.php' => '599d264ddcfcb684b36e6200767f8c08',
+                'library/Jrahmy/ReportAlert/Model/Report.php' => '041fa3dc33603bd58c525459b54d2344',
+                'library/Jrahmy/ReportAlert/AlertHandler/Report.php' => 'ae7f26c1634948ca339c4978f0dfa45c',
 
         ];
     }

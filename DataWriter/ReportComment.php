@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Jrahmy\ReportCommentAlert\DataWriter;
+namespace Jrahmy\ReportAlert\DataWriter;
 
 /**
  * Extends \XenForo_DataWriter_ReportComment to modify post-save actions.
@@ -21,8 +21,8 @@ class ReportComment extends XFCP_ReportComment
     /**
      * Actions to perform after the transaction is committed.
      *
-     * Loads parent method, then alerts all other report moderators that
-     * another moderator has commented.
+     * Loads parent method, then alerts all report moderators that a user has
+     * commented.
      */
     protected function _postSaveAfterTransaction()
     {
@@ -34,7 +34,7 @@ class ReportComment extends XFCP_ReportComment
             $comment = $this->getMergedData();
             $report  = $reportModel->getReportById($comment['report_id']);
 
-            $reportModel->sendAlertToOtherCommentersOnComment($comment, $report);
+            $reportModel->sendAlertToModeratorsOnComment($comment, $report);
         }
     }
 }

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Jrahmy\ReportCommentAlert;
+namespace Jrahmy\ReportAlert;
 
 /**
  * Installs custom content type and content type fields so that add-ons may
@@ -26,7 +26,7 @@ class Install
      */
     public static $contentTypes = [
         'report' => [
-            'alert_handler_class' => 'Jrahmy\ReportCommentAlert\AlertHandler\Report'
+            'alert_handler_class' => 'Jrahmy\ReportAlert\AlertHandler\Report'
         ]
     ];
 
@@ -71,7 +71,7 @@ class Install
             self::installContentType($addOnId, $contentType, $fields);
         }
 
-        /** @var $contentTypeModel \XenForo_Model_ContentType */
+        /* @var $contentTypeModel \XenForo_Model_ContentType */
         $contentTypeModel = \XenForo_Model::create('XenForo_Model_ContentType');
         $contentTypeModel->rebuildContentTypeCache();
     }
@@ -124,7 +124,7 @@ class Install
             self::uninstallContentType($contentType, $fields);
         }
 
-        /** @var $contentTypeModel \XenForo_Model_ContentType */
+        /* @var $contentTypeModel \XenForo_Model_ContentType */
         $contentTypeModel = \XenForo_Model::create('XenForo_Model_ContentType');
         $contentTypeModel->rebuildContentTypeCache();
     }
