@@ -28,8 +28,12 @@ class Report extends \XenForo_AlertHandler_Abstract
      *
      * @return array The content associated with the alerts
      */
-    public function getContentByIds(array $contentIds, $model, $userId, array $viewingUser)
-    {
+    public function getContentByIds(
+        array $contentIds,
+        \XenForo_Model_Alert $model,
+        $userId,
+        array $viewingUser
+    ) {
         /* @var $reportModel \XenForo_Model_Report */
         $reportModel = $model->getModelFromCache('XenForo_Model_Report');
 
