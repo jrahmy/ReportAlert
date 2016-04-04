@@ -85,8 +85,11 @@ class Install
      * @param string $contentType The content type to install
      * @param array  $fields      An array of fields associated with the type
      */
-    public static function installContentType($addOnId, $contentType, array $fields)
-    {
+    public static function installContentType(
+        $addOnId,
+        $contentType,
+        array $fields
+    ) {
         foreach ($fields as $name => $value) {
             self::installContentTypeField($contentType, $name, $value);
         }
