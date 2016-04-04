@@ -3,10 +3,10 @@
 /*
  * This file is part of a XenForo add-on.
  *
- * (c) Jeremy P <http://xenforo.com/community/members/jeremy-p.450/>
+ * (c) Jeremy P <https://xenforo.com/community/members/jeremy-p.450/>
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view the LICENSE file
+ * that was distributed with this source code.
  */
 
 namespace Jrahmy\ReportAlert;
@@ -15,7 +15,7 @@ namespace Jrahmy\ReportAlert;
  * Installs custom content type and content type fields so that add-ons may
  * use custom XenForo handlers for alerts, reports, spam, likes, and others.
  *
- * @author Jeremy P <http://xenforo.com/community/members/jeremy-p.450/>
+ * @author Jeremy P <https://xenforo.com/community/members/jeremy-p.450/>
  */
 class Install
 {
