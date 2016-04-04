@@ -41,8 +41,12 @@ class Report extends XFCP_Report
                     user.*,
                     assigned.username AS assigned_username
                 FROM xf_report AS report
-                LEFT JOIN xf_user AS assigned ON (assigned.user_id = report.assigned_user_id)
-                LEFT JOIN xf_user AS user ON (user.user_id = report.content_user_id)
+                LEFT JOIN xf_user AS assigned ON (
+                    assigned.user_id = report.assigned_user_id
+                )
+                LEFT JOIN xf_user AS user ON (
+                    user.user_id = report.content_user_id
+                )
                 WHERE report.report_id IN (' . $this->_getDb()->quote($reportIds) . ')',
             'report_id'
         );
